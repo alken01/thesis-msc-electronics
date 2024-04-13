@@ -24,5 +24,3 @@ compare its performance to a conventional dual-SSVEP paradigm.
 ## More Information
 
 For more information, please refer to the [Full Thesis](https://github.com/alken01/thesis-msc-electronics/blob/main/thesis.pdf), [VR Application](https://github.com/alken01/Binocular-SSVEP-VR) and [Data Analysis](https://github.com/alken01/BCI).
-
-Thesis submitted for the degree of Master of Science in Engineering Technology: Electronics Engineering at KU Leuven (2023).
