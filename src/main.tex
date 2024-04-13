@@ -1,0 +1,114 @@
+\documentclass[master=eaict]{kulemt}
+\setup{% Remove the "%" on the next line when using UTF-8 character encoding
+  inputenc=utf8,
+  title={Evaluating a Binocular dual-SSVEP Paradigm in Virtual Reality},
+  author={Alken Rrokaj\and Fatjon Barçi},
+  promotor={Prof.\,dr. Toon van Waterschoot},
+  assessor={Prof.\,dr. Marc Van Hulle},
+  assistant={Liuyin Yang}}
+
+% \RequirePackage{pkgcheck}
+
+% Choose the main text font (e.g., Latin Modern)
+\setup{font=lm}
+
+\usepackage[pdfusetitle,colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue,plainpages=false]{hyperref}
+
+
+% Load necessary packages and styles
+\usepackage{tabularx}
+\usepackage{amssymb} % for \varnothing
+\usepackage{multicol}
+\usepackage{pdflscape} 
+\usepackage{subcaption}
+\usepackage{makecell}
+
+\usepackage{eso-pic} % for cover fig
+\AddToShipoutPictureBG*{%
+  \AtPageLowerLeft{%
+    \hspace{\dimexpr(\paperwidth-17cm)/2\relax}%
+    \raisebox{21cm}{\includegraphics[width=17cm,keepaspectratio]{images/wave.png}}%
+  }%
+}
+
+%\includeonly{chap-n}
+\begin{document}
+
+\begin{preface}
+``I believe the future of communication is brain-computer interfaces''
+\begin{flushright}
+- Stephen Hawking \cite{hawking2018brief}
+\end{flushright}
+
+\end{preface}
+
+\tableofcontents*
+
+\begin{abstract}
+  Brain-computer interfaces (BCIs) offer a promising means of communication and control for individuals with limited mobility due to neurological disorders or injuries. Steady-state visually evoked potentials (SSVEPs) are a type of BCI paradigm that rely on the brain's response to specific visual frequencies. Single frequency SSVEP suffers from the limited number of targets thus dual-SSVEP paradigms were proposed. Conventional dual-SSVEP paradigms, however, suffer from limitations such as intermodulation of harmonic components, which can result in reduced accuracy and reliability. 
+  
+  This study aims to explore the feasibility and effectiveness of a novel dual-SSVEP paradigm using virtual reality (VR) technology. By presenting SSVEP stimuli to each eye separately in a VR environment, we hypothesize that intermodulation of harmonic components can be mitigated, ultimately improving the accuracy and reliability of the SSVEP response. In this thesis, we design and implement a VR-based dual-SSVEP paradigm, evaluate its performance in terms of reliability, and compare its performance to a conventional dual-SSVEP paradigm.
+\end{abstract}
+
+
+\listoffiguresandtables
+\chapter{List of Abbreviations and Symbols}
+\section*{Abbreviations}
+\begin{flushleft}
+  \renewcommand{\arraystretch}{1.1}
+  \begin{tabularx}{\textwidth}{@{}p{12mm}X@{}}
+    BCI & Brain-Computer Interface \\
+    BMI & Brain-Machine Interface \\
+    EEG & Electroencephalogram \\
+    ECoG & Electrocorticographic \\
+    fMRI & Functional Magnetic Resonance Imaging \\
+    fNIRS & Functional Near-Infrared Spectroscopy \\
+    MEG & Magnetoencephalography \\
+    PET & Positron Emission Tomography \\
+    ITR & Information Transfer Rate \\
+    SNR & Signal-to-Noise Ratio \\
+    bpm & Bits per Minute \\
+    c-VEP & Code-Modulated Visual Evoked Potentials \\
+    t-VEP & Transient Visual Evoked Potentials \\
+    ERP & Event-Related Potential \\
+    SSVEP & Steady-State Visually Evoked Potential \\
+    VR & Virtual Reality \\
+    TCP   & Transmission Control Protocol \\
+    LSL   & Lab Streaming Layer \\
+    IP    & Internet Protocol \\
+    PSD   & Power Spectral Density \\
+    IM & Intermodulation \\
+    BR & Binocular Rivalry \\
+    FL & Focus Left \\
+    FR & Focus Right \\
+    
+  \end{tabularx}
+\end{flushleft}
+\section*{Symbols}
+\begin{flushleft}
+  \renewcommand{\arraystretch}{1.1}
+  \begin{tabularx}{\textwidth}{@{}p{12mm}X@{}}
+    $f$   & Frequency \\
+  \end{tabularx}
+\end{flushleft}
+
+% Now comes the main text
+\mainmatter
+\include{chapters/intro}
+\include{chapters/methods}
+\include{chapters/results}
+\include{chapters/discussion}
+\include{chapters/conclusion}
+
+% If you have appendices:
+% \appendixpage*          
+% \appendix
+% % \include{chapters/appendix-tables}
+% \include{chapters/appendix-results}
+
+\backmatter
+% The bibliography comes after the appendices.
+\bibliographystyle{IEEEtran}
+\bibliography{chapters/references}
+
+\end{document}

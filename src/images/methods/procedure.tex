@@ -1,0 +1,40 @@
+\documentclass[border=2mm]{standalone}
+
+\usepackage{pgf-umlsd}
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+\begin{document}
+    \begin{sequencediagram}
+        \newinst[0]{p}{Participant}
+        \newinst[1.5]{v}{VR Headset}
+        \newinst[1.5]{l}{Laptop Server}
+        \newinst[1.5]{e}{EEG System}
+    
+        \mess{e}{Wear EEG Cap}{p}
+        \mess{v}{Wear VR Headset}{p}
+        \callself{l}{Start TCP/IP Server}{l}
+        
+        \mess{p}{Press Trigger}{v}
+
+        \mess{v}{Connect [TCP/IP]}{l}
+        \mess{l}{Connect [Bluetooth]}{e}
+        \callself{e}{Record}{e}
+        \mess{l}{Confirm [TCP/IP]}{v}
+         
+        \begin{sdblock}{loop}{[Complete Experiments]}
+            \mess{p}{Press Trigger}{v}
+            \callself{v}{Next Experiment}{v}
+            \begin{sdblock}{loop}{[Single Experiment]}
+                \mess{p}{Focus on Stimuli}{v}
+                \mess{v}{Data [TCP/IP]}{l}
+                \mess{l}{Parsed Markers [LSL]}{e}
+            \end{sdblock}
+        \end{sdblock}
+        
+        \mess{p}{Press Button}{v}
+        \mess{v}{Disconnect [TCP/IP]}{l}
+        \mess{e}{EEG Data [Bluetooth]}{l}
+        \callself{l}{Stop TCP/IP Server}{l}
+    \end{sequencediagram}
+\end{document}

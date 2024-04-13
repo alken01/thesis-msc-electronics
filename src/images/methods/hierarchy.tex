@@ -1,0 +1,48 @@
+\documentclass[border=2mm]{standalone}
+
+\usepackage{forest}
+\usepackage{xcolor}
+
+\begin{document}
+
+\begin{forest}
+        for tree={
+        child anchor=north,
+        align=center,
+        % draw=black,
+        },
+        [\textbf{Global} \\ \textit{ExperimentManager}\\ \textit{TCPClient},
+          [\textbf{Experiment\_0} \\ \textit{SSVEPManager} \\\textit{ExperimentData},
+            [\textbf{Target\_0} \\ \textit{TargetData},
+              [\textbf{Left} \\ \textit{SSVEP}]
+              [\textbf{Cross} ]
+              [\textbf{Right} \\ \textit{SSVEP}]
+            ]
+            [\cdots[,phantom]]
+            [\textbf{Target\_n} \\ \textit{TargetData},
+              [\textbf{Left} \\ \textit{SSVEP}]
+              [\textbf{Cross} ]
+              [\textbf{Right} \\ \textit{SSVEP}]
+            ]
+          ]
+          
+          [\cdots[,phantom[,phantom[,phantom]]]]
+
+          
+          [\textbf{Experiment\_n} \\ \textit{SSVEPManager} \\\textit{ExperimentData},
+            [\textbf{Target\_0} \\ \textit{TargetData},
+              [\textbf{Left} \\ \textit{SSVEP}]
+              [\textbf{Cross} ]
+              [\textbf{Right} \\ \textit{SSVEP}]
+            ]
+            [\cdots[,phantom]]
+            [\textbf{Target\_n} \\ \textit{TargetData},
+              [\textbf{Left} \\ \textit{SSVEP}]
+              [\textbf{Cross} ]
+              [\textbf{Right} \\ \textit{SSVEP}]
+            ]
+          ],
+        ]
+      \end{forest}
+
+\end{document}
